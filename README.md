@@ -53,6 +53,8 @@ The backend is using Python with Flask, specifically FLask SQLAlchemy to create 
 The frontend is using Javascript with a React framework. 
 
 **Design**
+
 Here's the link to a basic wireframe I sketched out. I plan to use Material UI to create the Card component to display each book and overall styling. 
+
 https://drive.google.com/file/d/1-4mRfWjXo5Mxj5_D708RPa45oHHP1FLi/view?usp=sharing
 
