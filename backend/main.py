@@ -21,6 +21,7 @@ def add_book():
         return (jsonify({"message": "You must enter an author's name."}), 400)
     if not genre:
         return (jsonify({"message": "You must enter at least one genre."}), 400)
+    #also add warning fro double adding book
     
     new_book = Book(title=title, author=author, genre=genre)
     try:
