@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import BookList from './BookList'
 import './App.css'
+import BookForm from './components/BookForm'
 
 function App() {
   const [books,setBooks] = useState([])
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <BookList books={books}></BookList>
+      <BookForm/>
     </>
   )
 }
