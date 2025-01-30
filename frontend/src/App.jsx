@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react'
 import BookList from './BookList'
 import './App.css'
 import BookForm from './components/BookForm'
+import Button from '@mui/joy/Button'
 
 function App() {
   const [books,setBooks] = useState([])
-
+  const [isModalOpen, setIsModalOpen] = useState(false)
   useEffect(() => {fetchBooks()},[])
 
   const fetchBooks = async () => {
@@ -14,10 +15,25 @@ function App() {
     setBooks(data.books)
   }
 
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
+
+  const openAddModal = () => {
+    if (!isModalOpen) setIsModalOpen(true)
+  }
+
   return (
     <>
+      <h1>Books</h1>
+      <Button onClick={openAddModal} sx={{marginBottom:'1rem'}}>+ Add Book</Button>
       <BookList books={books}></BookList>
-      <BookForm/>
+      {isModalOpen && <div className='modal'>
+        <div className='modal-content'>
+          <span className='close' onClick={closeModal}>&times;</span>
+          <BookForm/>
+        </div>
+        </div>}
     </>
   )
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-    Input,  FormControl,  InputLabel,  FormHelperText,  Checkbox,  Switch,  FormControlLabel,    Stack,  Button,  TextField } from "@mui/material";
+    Input,  FormControl,  InputLabel,  FormHelperText, FormLabel, Stack,  Button,  TextField, Typography} from "@mui/material";
 
 export default function BookForm(){
     const [title,setTitle] = useState("")
@@ -36,9 +36,9 @@ export default function BookForm(){
 
     return (
     <form onSubmit={onSubmit}> 
-        <Stack direction="column" spacing={2}>
+        <Stack direction="column" spacing={2} sx={{marginLeft:'1rem', marginTop:'2rem', marginRight:'1rem'}}>
             <FormControl>
-                <InputLabel htmlFor="title">Book Title</InputLabel>
+                <FormLabel htmlFor="title" sx={{color:'black'}}>Book Title</FormLabel>
                 <Input type="text" id="title" value={title} onChange={(e)=>setTitle(e.target.value)}/>
                 <FormHelperText id="title-text">
                 Please enter the book title.
@@ -46,7 +46,7 @@ export default function BookForm(){
             </FormControl>
             
             <FormControl>
-                <InputLabel htmlFor="author">Author's Name</InputLabel>
+                <FormLabel htmlFor="author" sx={{color:'black'}}>Author's Name</FormLabel>
                 <Input type="text" id="author" value={author} onChange={(e)=>setAuthor(e.target.value)}/>
                 <FormHelperText id="author-text">
                 Please enter the author's name.
@@ -54,7 +54,7 @@ export default function BookForm(){
             </FormControl>
                 
             <FormControl>
-                <InputLabel htmlFor="genre">Genre(s)</InputLabel>
+                <FormLabel htmlFor="genre" sx={{color:'black'}}>Genre(s)</FormLabel>
                 <Input type="text" id="genre" value={genre} onChange={(e)=>setGenre(e.target.value)}/>
                 <FormHelperText id="genre-text">
                 Please enter the book genres.

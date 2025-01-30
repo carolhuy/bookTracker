@@ -6,8 +6,8 @@ import Button from '@mui/joy/Button';
 export default function BookCard({book}){
     return (
     <>
-        <Card size="lg">
-            <CardContent orientation="horizontal"/>
+        <Card>
+            <CardContent/>
             <CardContent>
                 <h2>Title: {book.title}</h2>
                 <h2>Author: {book.author}</h2>
