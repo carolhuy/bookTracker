@@ -23,6 +23,11 @@ function App() {
     if (!isModalOpen) setIsModalOpen(true)
   }
 
+  const onUpdate = () =>{
+    closeModal()
+    fetchBooks()
+  }
+
   return (
     <>
       <h1>Books</h1>
