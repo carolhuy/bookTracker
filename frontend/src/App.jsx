@@ -41,7 +41,7 @@ function App() {
     <>
       <h1>Books</h1>
       <Button onClick={openAddModal} sx={{marginBottom:'1rem'}}>+ Add Book</Button>
-      <BookList books={books} updateBook={openUpdateModal}></BookList>
+      <BookList books={books} updateBook={openUpdateModal} refresh={onUpdate}></BookList>
       {isModalOpen && <div className='modal'>
         <div className='modal-content'>
           <span className='close' onClick={closeModal}>&times;</span>
