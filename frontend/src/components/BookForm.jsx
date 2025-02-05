@@ -2,11 +2,12 @@ import { useState } from "react";
 import {
     Input,  FormControl,  InputLabel,  FormHelperText, FormLabel, Stack,  Button,  TextField, Typography} from "@mui/material";
 
-export default function BookForm(){
-    const [title,setTitle] = useState("")
-    const [author,setAuthor] = useState("")
-    const [genre,setGenre] = useState("")
+export default function BookForm( { existingBook = {}, updateCallback}){
+    const [title,setTitle] = useState(existingBook.title || "")
+    const [author,setAuthor] = useState(existingBook.author || "")
+    const [genre,setGenre] = useState(existingBook.genre || "")
 
+    const updating = Object.entries(existingBook).length!==0
     const onSubmit = async (e) =>{
         e.preventDefault()
 
@@ -15,10 +16,11 @@ export default function BookForm(){
             author,
             genre
         }
+        console.log('existingBook',existingBook)
 
-        const url = "http://127.0.0.1:5000/add_book"
+        const url = "http://127.0.0.1:5000/" + (updating ? `update_book/${existingBook.id}`:"add_book")
         const options = {
-            method: "POST",
+            method: updating ? "PATCH" : "POST",
             headers: {
                 "Content-Type":"application/json"
             },
@@ -30,7 +32,8 @@ export default function BookForm(){
             alert (result.message)
         }
         else{
-            //successful request 
+            //successful request, close the modal and update the data 
+            updateCallback()
         }
     }
 
@@ -61,7 +64,7 @@ export default function BookForm(){
                 </FormHelperText>
             </FormControl>
 
-            <Button type="submit">Add Book</Button>
+            <Button type="submit">{updating ? "Update Book" : "Add Book"}</Button>
         </Stack>   
     </form>
     )

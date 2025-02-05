@@ -3,7 +3,7 @@ import CardContent from '@mui/joy/CardContent'
 import CardActions from '@mui/joy/CardActions';
 import Button from '@mui/joy/Button';
 
-export default function BookCard({book}){
+export default function BookCard({book, updateBookFunc}){
     return (
     <>
         <Card>
@@ -15,7 +15,7 @@ export default function BookCard({book}){
             </CardContent>
 
             <CardActions>
-                <Button variant="outlined" color="neutral">
+                <Button variant="outlined" color="neutral" onClick={()=>updateBookFunc(book)}>
                 Update
                 </Button>
                 <Button variant="solid" color="primary">
