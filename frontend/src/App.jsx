@@ -7,6 +7,8 @@ import Button from '@mui/joy/Button'
 function App() {
   const [books,setBooks] = useState([])
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [currentBook, setCurrentBook] = useState({})
+
   useEffect(() => {fetchBooks()},[])
 
   const fetchBooks = async () => {
@@ -17,10 +19,17 @@ function App() {
 
   const closeModal = () => {
     setIsModalOpen(false)
+    setCurrentBook({})
   }
 
   const openAddModal = () => {
     if (!isModalOpen) setIsModalOpen(true)
+  }
+
+  const openUpdateModal = (book) =>{
+    if (isModalOpen) return 
+    setCurrentBook(book)
+    setIsModalOpen(true)
   }
 
   const onUpdate = () =>{
@@ -32,11 +41,11 @@ function App() {
     <>
       <h1>Books</h1>
       <Button onClick={openAddModal} sx={{marginBottom:'1rem'}}>+ Add Book</Button>
-      <BookList books={books}></BookList>
+      <BookList books={books} updateBook={openUpdateModal} refresh={onUpdate}></BookList>
       {isModalOpen && <div className='modal'>
         <div className='modal-content'>
           <span className='close' onClick={closeModal}>&times;</span>
-          <BookForm/>
+          <BookForm existingBook={currentBook} updateCallback={onUpdate}/>
         </div>
         </div>}
     </>
