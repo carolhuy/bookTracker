@@ -1,4 +1,5 @@
 **Book Tracker**
+This project is based off a Youtube tutorial for a Contact Book ()
 
 **Purpose**
 
@@ -55,6 +56,12 @@ The frontend is using Javascript with a React framework.
 **Design**
 
 Here's the link to a basic wireframe I sketched out. I plan to use Material UI to create the Card component to display each book and overall styling. 
+![Wireframe](https://github.com/user-attachments/assets/2e326f08-7a26-4a52-96d9-011d89cf0aba)
 
-https://drive.google.com/file/d/1-4mRfWjXo5Mxj5_D708RPa45oHHP1FLi/view?usp=sharing
+Minimum Viable Product
+Here's a demo of the application with the minimum features: displaying the books, adding a book, deleting, and updating. 
+
+https://github.com/user-attachments/assets/d048e983-08d1-4bee-a6d7-94b5b4f09eaf
+
+
 
